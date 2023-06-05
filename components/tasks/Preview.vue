@@ -31,18 +31,18 @@
 				</BaseButton>
 			</div>
 		</div>
-		<BaseButton title="Star" :class="['absolute right-1/2 top-0 group-hover:-translate-y-6 flex items-center transition-all z-0', {
+		<BaseButton title="Star" :class="['absolute right-1/2 top-0 group-hover:-translate-y-6 flex items-center z-0', {
 			'border-transparent text-orange-300 hover:bg-orange-300 hover:text-white hover:border-orange-300': !task.stared,
 			'-translate-y-4 group-hover:-translate-y-4 bg-orange-300 text-white border-orange-300': task.stared
 		}]" @click="star(task.id, !task.stared)">
 			<Icon name="material-symbols:star" />
 		</BaseButton>
-		<!-- <BaseButton title="Pin" :class="['absolute right-1/2 top-0 group-hover:-translate-y-6 flex items-center transition-all z-0 border-transparent bg-transparent text-blue-300 hover:bg-blue-300 hover:text-white hover:border-blue-300', {
-			'z-20 -translate-y-4 group-hover:-translate-y-4 bg-blue-300 text-white': task.pinned
+		<BaseButton title="Pin" :class="['absolute left-0 top-2 flex items-center z-0 text-blue-300 hover:bg-blue-300 hover:text-white hover:border-blue-300', {
+			'z-20 -translate-x-6 group-hover:-translate-x-6 bg-blue-300 text-white': task.pinned,
+			'border-transparent bg-transparent group-hover:-translate-x-6': !task.pinned
 		}]" @click="pin(task.id, !task.pinned)">
 			<Icon name="ic:round-push-pin" />
-		</BaseButton> -->
-
+		</BaseButton>
 	</div>
 </template>
 

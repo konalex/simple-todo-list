@@ -28,6 +28,9 @@ export const useTasksStore = defineStore('tasks', {
 		},
 		star(id, value) {
 			this.tasks.find(element => element.id === id).stared = value;
+		},
+		pin(id, value) {
+			this.tasks.find(element => element.id === id).pinned = value;
 		}
 	}
 });
