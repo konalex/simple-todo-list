@@ -10,9 +10,10 @@ export const useTasksStore = defineStore('tasks', {
 		getTasks: state => state.tasks
 	},
 	actions: {
-		add(content) {
+		add(title, content) {
 			this.tasks.push({
 				id: uuidv4(),
+				title: title,
 				content: content,
 				done: false,
 				stared: false,
@@ -23,14 +24,19 @@ export const useTasksStore = defineStore('tasks', {
 			const index = this.tasks.findIndex(element => element.id === id);
 			this.tasks.splice(index, 1);
 		},
-		update(id, content) {
-			this.tasks.find(element => element.id === id).content = content;
+		update(id, title, content) {
+			const task = this.tasks.find(element => element.id === id);
+			task.title = title;
+			task.content = content;
 		},
 		star(id, value) {
 			this.tasks.find(element => element.id === id).stared = value;
 		},
 		pin(id, value) {
 			this.tasks.find(element => element.id === id).pinned = value;
+		},
+		done(id, value) {
+			this.tasks.find(element => element.id === id).done = value;
 		}
 	}
 });

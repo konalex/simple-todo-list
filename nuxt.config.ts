@@ -3,10 +3,10 @@ export default defineNuxtConfig({
 	app: {
 		head: {
 			title: 'Simple TODO app'
-		}
+		},
 	},
 
-	modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n', 'nuxt-icon', '@pinia/nuxt'],
+	modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n', 'nuxt-icon', '@pinia/nuxt', '@nuxtjs/color-mode'],
 	devtools: {
 		enabled: true
 	},
@@ -14,5 +14,8 @@ export default defineNuxtConfig({
 		autoImports: [
 		  'defineStore'
 		],
-	  },
+	},
+	colorMode: {
+		classSuffix: ""
+	}
 })
