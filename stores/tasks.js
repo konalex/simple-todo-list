@@ -14,7 +14,9 @@ export const useTasksStore = defineStore('tasks', {
 			this.tasks.push({
 				id: uuidv4(),
 				content: content,
-				done: false
+				done: false,
+				stared: false,
+				pinned: false
 			})
 		},
 		remove(id) {
@@ -24,5 +26,8 @@ export const useTasksStore = defineStore('tasks', {
 		update(id, content) {
 			this.tasks.find(element => element.id === id).content = content;
 		},
+		star(id, value) {
+			this.tasks.find(element => element.id === id).stared = value;
+		}
 	}
 });
