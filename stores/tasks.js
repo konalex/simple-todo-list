@@ -4,12 +4,16 @@ import { v4 as uuidv4 } from 'uuid';
 export const useTasksStore = defineStore('tasks', {
 	id: 'tasks',
 	state: () => ({
-		tasks: []
+		tasks: [],
+		form: false
 	}),
 	getters: {
 		getTasks: state => state.tasks
 	},
 	actions: {
+		toggle() {
+			this.form = !this.form;
+		},
 		add(title, content) {
 			this.tasks.push({
 				id: uuidv4(),

@@ -1,5 +1,5 @@
 <template>
-	<div class="flex relative">
+	<div class="flex relative w-6 h-6">
 		<Icon
 			name="ic:round-dark-mode"
 			:class="[ standart, 'text-white hover:border-white', {

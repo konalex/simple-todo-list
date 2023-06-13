@@ -1,7 +1,8 @@
 <template>
   <div class="pt-4">
-    <h1 class="text-center mb-6">All tasks</h1>
-    <div class="flex">
+    <h1 class="text-center mb-6"> {{ $t('all_title') }}</h1>
+    <div class="flex justify-center">
+      <TasksToggler />
       <TasksForm />
     </div>
     <div class="mt-1 container mx-auto">

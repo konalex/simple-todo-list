@@ -17,5 +17,8 @@ export default defineNuxtConfig({
 	},
 	colorMode: {
 		classSuffix: ""
+	},
+	i18n: {
+		vueI18n: './i18n.config.ts'
 	}
 })
