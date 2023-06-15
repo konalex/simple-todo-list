@@ -1,30 +1,49 @@
 <template>
-  <div class="pt-4">
-    <h1 class="text-center mb-6"> {{ $t('all_title') }}</h1>
-    <div class="flex justify-center">
-      <TasksToggler />
-      <TasksForm />
-    </div>
-    <div class="mt-1 container mx-auto">
-      <div :class="['w-1/3 mx-auto text-center', {
-        'text-green-500':  store.getTasks.filter(el => el.done).length === store.getTasks.length,
-        'opacity-0': !store.getTasks.length
-      }]">
-        {{ store.getTasks.filter(el => el.done).length }}/{{ store.getTasks.length }}
-      </div>
-    </div>
-    <div class="tasks-list overflow-auto">
-      <div class="pb-2 pt-6 container mx-auto">
-        <TasksPreview v-for="task in store.getTasks" :key="task.id" :task="task" class="w-1/3 mx-auto" />
-      </div>
-    </div>
-  </div>
+	<div class="pt-4">
+		<div class="mt-1 container mx-auto">
+			<!-- Task counter -->
+			<TasksCounter :all="all" :done="done" />
+		</div>
+		<div class="overflow-auto h-[calc(100vh-11rem)] px-4 flex">
+			<!-- Task groups -->
+			<TasksGroup v-for="(group, i) in groups" :key="i" :name="group.name" :color="group.color" :tasks="group.tasks"
+				class="mr-4" />
+		</div>
+	</div>
 </template>
 
 <script setup>
 import { useTasksStore } from '@/stores/tasks'
 
 const store = useTasksStore();
+
+const groups = computed(() => {
+	return [
+		{
+			name: 'To do',
+			color: '#973FCF',
+			tasks: store.getNewTasks
+		},
+		{
+			name: 'in progress',
+			color: '#FFA500',
+			tasks: []
+		},
+		{
+			name: 'done',
+			color: '#68B266',
+			tasks: store.getDoneTasks
+		}
+	]
+});
+
+const all = computed(() => {
+	return store.getAllTasks.length;
+})
+
+const done = computed(() => {
+	return store.getDoneTasks.length
+})
 
 </script>
 

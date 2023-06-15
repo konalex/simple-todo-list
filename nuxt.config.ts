@@ -4,6 +4,7 @@ export default defineNuxtConfig({
 		head: {
 			title: 'Simple TODO app'
 		},
+		pageTransition: { name: 'page', mode: 'out-in' }
 	},
 
 	modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n', 'nuxt-icon', '@pinia/nuxt', '@nuxtjs/color-mode'],

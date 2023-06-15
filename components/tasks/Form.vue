@@ -8,7 +8,7 @@
 	>
 		<div class="bg-slate-900 opacity-60 w-full h-full absolute top-0 left-0" @click="close" />
 		<form
-			:class="['flex top-0 right-0 flex-col pt-24 pb-2 px-4 rounded-md h-full w-2/6 relative bg-slate-100 transition-transform shadow-xl justify-between', {
+			:class="['flex top-0 right-0 flex-col pt-8 pb-2 px-6 rounded-md h-full w-2/6 relative bg-slate-100 transition-transform shadow-xl justify-between', {
 				'translate-x-0': store.form,
 				'translate-x-full ': !store.form,
 			}]"
@@ -22,15 +22,23 @@
 			</BaseButton>
 			
 			<div class="main">
-				<div class="title">
-					<span>
-
-					</span>
-					<BaseInput placeholder="Enter the title" @change="changeTitle" :clear="clear" class="mb-2" />
-				</div>
-
-				<div class="content">
-					<BaseTextArea placeholder="Enter the description" class="mb-2" @input="changeContent" :clear="clear" />
+				<h2 class="mb-8 text-3xl">{{ $t('main_form_title') }}</h2>
+				
+				<BaseInput
+					class=""
+					:label="$t('main_form_task_title_label')"
+					:placeholder="$t('main_form_task_title_placeholder')"
+					:clear="clear"
+					@change="changeTitle"
+				/>
+				<div class="my-4">
+					<BaseTextArea
+						class="w-full"
+						:label="$t('main_form_task_description_label')"
+						:placeholder="$t('main_form_task_description_placeholder')"
+						:clear="clear"
+						@input="changeContent"
+					/>
 				</div>
 			</div>
 
@@ -79,6 +87,7 @@ function add() {
 			title.value = '';
 			content.value = '';
 			clear.value = false;
+			store.toggle();
 		})
 	}
 }

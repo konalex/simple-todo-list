@@ -3,6 +3,6 @@ import ua from './locales/ua';
 
 export default defineI18nConfig(() => ({
 	legacy: false,
-	locale: 'en',
+	locale: 'ua',
 	messages: { en, ua }
 }))

@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia';
 
 export const useGlobalStore = defineStore('global', {
-	id: 'global',
 	state: () => ({
 		mode: ''
 	}),

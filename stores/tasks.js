@@ -2,13 +2,14 @@ import { defineStore } from 'pinia';
 import { v4 as uuidv4 } from 'uuid';
 
 export const useTasksStore = defineStore('tasks', {
-	id: 'tasks',
 	state: () => ({
 		tasks: [],
 		form: false
 	}),
 	getters: {
-		getTasks: state => state.tasks
+		getAllTasks: state => state.tasks,
+		getNewTasks: state => state.tasks.filter(task => !task.done),
+		getDoneTasks: state => state.tasks.filter(task => task.done)
 	},
 	actions: {
 		toggle() {
@@ -19,9 +20,7 @@ export const useTasksStore = defineStore('tasks', {
 				id: uuidv4(),
 				title: title,
 				content: content,
-				done: false,
-				stared: false,
-				pinned: false
+				done: !!Math.round(Math.random())
 			})
 		},
 		remove(id) {
@@ -32,12 +31,6 @@ export const useTasksStore = defineStore('tasks', {
 			const task = this.tasks.find(element => element.id === id);
 			task.title = title;
 			task.content = content;
-		},
-		star(id, value) {
-			this.tasks.find(element => element.id === id).stared = value;
-		},
-		pin(id, value) {
-			this.tasks.find(element => element.id === id).pinned = value;
 		},
 		done(id, value) {
 			this.tasks.find(element => element.id === id).done = value;
