@@ -4,17 +4,24 @@ const routes = {
 	all_route: "Списком",
 	projects_route: "Проекти"
 };
-
 // Buttons
 const buttons = {
 	submit: "Підтвердити",
 	cancel: "Відміна",
 	new_task: "Створити",
 }
-
 // Titles
 const titles = {
 	all_title: "Всі задачі",
+}
+// Tasks
+const tasks = {
+	counter_title: "Лічильник задач",
+	counter_action: "Чудова робота",
+	all_complete: "Вау! Все зроблено!",
+	todo_title: "Нові",
+	process_title: "В роботі",
+	done_title: "Завершено"
 }
 
 // Main form
@@ -31,5 +38,6 @@ export default {
 	...buttons,
 	...routes,
 	...locales,
-	...main_form
+	...main_form,
+	...tasks
 }

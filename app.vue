@@ -11,10 +11,10 @@
 }
 .page-enter-from {
   opacity: 0;
-  transform: scale(0.95);
+  transform: scale(0.99);
 }
 .page-leave-to  {
 	opacity: 0;
-	transform: scale(0.95);
+	transform: scale(0.99);
 }
 </style>

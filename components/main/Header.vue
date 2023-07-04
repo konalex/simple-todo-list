@@ -3,8 +3,8 @@
 		<ul class="w-1/2 text-center flex ml-4 z-0">
 			<li v-for="(route, i) in $router.options.routes" :key="i" class="z-0">
 				<NuxtLink :to="route.path" :class="['capitalize inline-flex items-center py-3 px-6 transition-all', {
-					'text-blue-400 bg-blue-100': route.name === $route.name,
-					'bg-white text-slate-600 hover:bg-blue-100': route.name !== $route.name,
+					'text-blue-400 bg-blue-100 dark:bg-gray-900 dark:text-blue-400': route.name === $route.name,
+					'bg-white text-slate-600 hover:bg-blue-100 dark:bg-gray-800 dark:text-white': route.name !== $route.name,
 					'rounded-s-md ': i === 0,
 					'rounded-e-md': i === $router.options.routes.length - 1
 				}]">
@@ -16,7 +16,7 @@
 			</li>
 		</ul>
 		<BaseButton
-			class="flex text-left text-white w-36 items-center px-4 py-3 bg-blue-400 border-none hover:bg-blue-500 dark:bg-blue-700 dark:text-white dark:hover:bg-blue-800"
+			class="flex text-left text-white w-36 mr-4 items-center px-4 py-3 bg-blue-400 border-none hover:bg-blue-500 dark:bg-blue-700 dark:text-white dark:hover:bg-blue-800"
 			@click="newTask"
 		>
 			<Icon name="material-symbols:add-rounded" class="bg-transparent w-1/4" />

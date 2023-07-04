@@ -9,7 +9,7 @@
 			type="text"
 			class="w-full h-12 relative border border-slate-200 mb-2 outline-none bg-white rounded-md px-3 transition-all text-slate-700 shadow-sm hover:bg-white hover:shadow focus:border focus:border-slate-400"
 			:placeholder="placeholder"
-			:value="value"
+			:value="text"
 			@change="change($event)"
 		>
 	</label>
@@ -20,10 +20,10 @@ const emit = defineEmits(['change']);
 defineProps<{
 	required?: boolean,
 	placeholder?: string,
-	value: string,
 	label?: string
 }>();
 
+const text = ref('')
 function change(event: any) {
 	const { value } = event.target;	
 	emit('change', value);
